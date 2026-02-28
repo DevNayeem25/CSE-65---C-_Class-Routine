@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSE 65 C - Routine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      /* import font  */
+
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+      /* font-family: "Montserrat", sans-serif; */
+
+      /* import font  */
+
+      body {
+        margin: 0;
+        font: 1em sans-serif;
+        font-family: "Montserrat", sans-serif;
+        background: linear-gradient(135deg, #0a259ebd, #788ff57a);
+        color: #ffffff;
+        text-align: center;
+      }
+      .logo {
+        margin-top: 20px;
+      }
+
+      .logo img {
+        width: 300px;
+        max-width: 90%;
+      }
+
+      h1 {
+        padding: 10px;
+        margin: 0;
+        font-size: 38px;
+        text-shadow:
+          0 0 10px #06343d,
+          0 0 20px #011114;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      marquee {
+        background: rgba(1, 56, 82, 0.425);
+        padding: 14px;
+        font-size: 20px;
+        font-family: "Montserrat", sans-serif;
+        color: rgb(219, 242, 255);
+        font-weight: bold;
+      }
+
+      table {
+        margin: 20px auto;
+        border-collapse: collapse;
+        width: 95%;
+        background: rgba(4, 149, 216, 0.25);
+        backdrop-filter: blur(8px);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+      }
+
+      th {
+        background: rgba(0, 148, 20, 0.973);
+      }
+
+      .offday td {
+        background-color: rgba(12, 52, 112, 0.795);
+        font-weight: bold;
+      }
+
+      footer {
+        margin: 20px;
+        font-size: 14px;
+        opacity: 0.8;
+      }
+
+      @media (max-width: 768px) {
+        table {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- University Logo -->
+    <div class="logo">
+      <img src="test/images/metropolitan-university.png.png" alt="" />
+    </div>
+
+    <h1>MU CSE 65 [C] - Routine (Ramadan)</h1>
+
+    <marquee scrollamount="4">
+      ✅ Ramadan Programming Workshop e sobar attend howa dorkar
+    </marquee>
+
+    <table>
+      <tr>
+        <th>Day</th>
+        <th>10:00-10:50</th>
+        <th>10:50-11:40</th>
+        <th>11:40-12:30</th>
+        <th>12:30-01:20</th>
+        <th>01:40-02:30</th>
+        <th>02:30-03:20</th>
+      </tr>
+
+      <tr>
+        <td>Sunday</td>
+        <td>----</td>
+        <td>----</td>
+        <td>----</td>
+        <td>DM - 404</td>
+        <td>----</td>
+        <td>----</td>
+      </tr>
+
+      <tr>
+        <td>Monday</td>
+        <td>ENG GL-1</td>
+        <td>D&IC - 408</td>
+        <td>----</td>
+        <td>Physics GL-1</td>
+        <td>----</td>
+        <td>----</td>
+      </tr>
+
+      <tr>
+        <td>Tuesday</td>
+        <td>DM - 508</td>
+        <td>ENG GL-1</td>
+        <td>----</td>
+        <td>----</td>
+        <td>----</td>
+        <td>----</td>
+      </tr>
+
+      <tr class="offday">
+        <td>Wednesday</td>
+        <td colspan="6">OFF-DAY</td>
+      </tr>
+
+      <tr>
+        <td>Thursday</td>
+        <td>----</td>
+        <td>----</td>
+        <td>----</td>
+        <td>D&IC - 409</td>
+        <td>----</td>
+        <td>PHY GL-2</td>
+      </tr>
+    </table>
+
+    <!--  contact Button -->
+    <footer>
+      <style>
+        .body {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 100vh;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          background: #000;
+          font-family: "Montserrat", sans-serif;
+        }
+
+        .glow-on-hover {
+          width: 220px;
+          height: 50px;
+          border: none;
+          outline: none;
+          color: #fff;
+          background: #111;
+          cursor: pointer;
+          position: relative;
+          z-index: 0;
+          border-radius: 10px;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 600;
+          color: rgba(255, 255, 255, 0.979);
+        }
+
+        .glow-on-hover:before {
+          content: "";
+          background: linear-gradient(
+            45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000
+          );
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          background-size: 400%;
+          z-index: -1;
+          filter: blur(5px);
+          width: calc(100% + 4px);
+          height: calc(100% + 4px);
+          animation: glowing 20s linear infinite;
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+          border-radius: 10px;
+        }
+
+        .glow-on-hover:active {
+          color: #000;
+        }
+
+        .glow-on-hover:active:after {
+          background: green;
+        }
+
+        .glow-on-hover:hover:before {
+          opacity: 1;
+        }
+
+        .glow-on-hover:after {
+          z-index: -1;
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: #025fac;
+          left: 0;
+          top: 0;
+          border-radius: 10px;
+        }
+
+        @keyframes glowing {
+          0% {
+            background-position: 0 0;
+          }
+          50% {
+            background-position: 400% 0;
+          }
+          100% {
+            background-position: 0 0;
+          }
+        }
+        .arafat {
+          font-family: "Montserrat", sans-serif;
+          color: rgb(0, 0, 0);
+          font-size: 15px;
+          font-weight: bold;
+        }
+        .nayeem {
+          font-family: "Montserrat", sans-serif;
+          font-size: 25px;
+          font-weight: bold;
+          color: rgb(0, 0, 0);
+        }
+      </style>
+
+      <button
+        class="glow-on-hover"
+        type="button"
+        onclick="
+          window.location.href =
+            'https://www.facebook.com/jannatull.nayeem.nur/';
+          target = '_blank';
+        "
+        target="_blank"
+      >
+        Contact me
+      </button>
+      <h4 class="nayeem">Creator - Jannatull Nayeem Nur</h4>
+      <h5 class="arafat">[ Inspired by Arafat Ahmed Sec B-(CR) ]</h5>
+    </footer>
+  </body>
+</html>
