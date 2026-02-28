@@ -5,284 +5,359 @@
     <title>CSE 65 C - Routine</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-      /* import font  */
-
-      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
-      /* font-family: "Montserrat", sans-serif; */
-
-      /* import font  */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
       body {
-        margin: 0;
-        font: 1em sans-serif;
         font-family: "Montserrat", sans-serif;
-        background: linear-gradient(135deg, #0a259ebd, #788ff57a);
-        color: #ffffff;
+        background: linear-gradient(135deg, #1967f7, #0472d2);
+        color: white;
         text-align: center;
+        transition: 0.4s;
       }
+
+      /* dark mode */
+
+      .dark {
+        background: linear-gradient(135deg, #343434, #646464);
+      }
+
+      /* logo */
+
       .logo {
         margin-top: 20px;
       }
 
       .logo img {
-        width: 300px;
+        width: 280px;
         max-width: 90%;
       }
 
+      /* title */
+
       h1 {
         padding: 10px;
-        margin: 0;
-        font-size: 38px;
-        text-shadow:
-          0 0 10px #06343d,
-          0 0 20px #011114;
-        font-family: "Montserrat", sans-serif;
+        font-size: 36px;
+        text-shadow: 0 0 10px #000;
       }
 
-      marquee {
-        background: rgba(1, 56, 82, 0.425);
-        padding: 14px;
+      /* clock */
+
+      .clock {
         font-size: 20px;
-        font-family: "Montserrat", sans-serif;
-        color: rgb(219, 242, 255);
-        font-weight: bold;
+        margin-top: 5px;
+        font-weight: 600;
+      }
+
+      .countdown {
+        font-size: 16px;
+        margin-top: 5px;
+      }
+
+      /* notice */
+
+      .notice {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-top: 10px;
+      }
+
+      .notice span {
+        display: inline-block;
+        animation: scroll 12s linear infinite;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      /* table */
+
+      .wrapper {
+        overflow-x: auto;
+        margin-top: 20px;
       }
 
       table {
-        margin: 20px auto;
-        border-collapse: collapse;
+        margin: auto;
         width: 95%;
-        background: rgba(4, 149, 216, 0.25);
-        backdrop-filter: blur(8px);
-        border-radius: 10px;
-        overflow: hidden;
+        border-collapse: collapse;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
       }
 
       th,
       td {
-        padding: 15px;
+        padding: 14px;
         border: 1px solid rgba(255, 255, 255, 0.2);
-        font-family: "Montserrat", sans-serif;
         font-weight: 600;
       }
 
       th {
-        background: rgba(0, 148, 20, 0.973);
+        background: #17009c;
       }
 
-      .offday td {
-        background-color: rgba(12, 52, 112, 0.795);
+      /* today highlight */
+
+      .today {
+        background: hsla(0, 0%, 32%, 0.603) !important;
+        color: black;
+      }
+
+      /* current class */
+
+      .current {
+        background: #7086E5 !important;
+        color: black;
         font-weight: bold;
       }
 
-      footer {
-        margin: 20px;
-        font-size: 14px;
-        opacity: 0.8;
+      /* offday */
+
+      .offday td {
+        background: #000000;
       }
 
+      /* toggle button */
+
+      .mode-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #111;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+       font-family: "Montserrat", sans-serif;
+      }
+
+      /* glow button */
+
+      .contact {
+        margin-top: 30px;
+        font-family: "Montserrat", sans-serif;
+        font-size: bold;
+        font-size: 18px;
+      }
+
+      .glow {
+        padding: 14px 30px;
+        border: none;
+        background: #025fac;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.3s;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .glow:hover {
+        box-shadow: 0 0 15px #00e1ff;
+      }
+
+      /* footer */
+
+      footer {
+        margin-top: 20px;
+        padding: 10px;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .creator {
+        font-size: 30px;
+        font-weight: bold;
+        text-shadow: 10px 10px 20px #000;
+      }
+
+      .credit {
+        font-size: 20px;
+        font-family: "Montserrat", sans-serif;
+         text-shadow: 10px 10px 20px #000;
+      }
+
+      /* mobile */
+
       @media (max-width: 768px) {
-        table {
+        h1 {
+          font-size: 24px;
+        }
+
+        th,
+        td {
           font-size: 12px;
+          padding: 10px;
         }
       }
     </style>
   </head>
 
   <body>
-    <!-- University Logo -->
+    <button class="mode-btn" onclick="toggleMode()">🌙 Mode</button>
+
     <div class="logo">
-      <img src="test/images/metropolitan-university.png.png" alt="" />
+      <img
+        src="metropolitan-university.png.png"
+        alt=""
+      />
     </div>
 
     <h1>MU CSE 65 [C] - Routine (Ramadan)</h1>
 
-    <marquee scrollamount="4">
-      ✅ Ramadan Programming Workshop e sobar attend howa dorkar
-    </marquee>
+    <div class="clock" id="clock"></div>
 
-    <table>
-      <tr>
-        <th>Day</th>
-        <th>10:00-10:50</th>
-        <th>10:50-11:40</th>
-        <th>11:40-12:30</th>
-        <th>12:30-01:20</th>
-        <th>01:40-02:30</th>
-        <th>02:30-03:20</th>
-      </tr>
+    <div class="countdown" id="ramadan"></div>
 
-      <tr>
-        <td>Sunday</td>
-        <td>----</td>
-        <td>----</td>
-        <td>----</td>
-        <td>DM - 404</td>
-        <td>----</td>
-        <td>----</td>
-      </tr>
+    <div class="notice">
+      <span>✅ Ramadan Programming Workshop e sobar attend howa dorkar</span>
+    </div>
 
-      <tr>
-        <td>Monday</td>
-        <td>ENG GL-1</td>
-        <td>D&IC - 408</td>
-        <td>----</td>
-        <td>Physics GL-1</td>
-        <td>----</td>
-        <td>----</td>
-      </tr>
+    <div class="wrapper">
+      <table id="routine">
+        <tr>
+          <th>Day</th>
+          <th>10:00-10:50</th>
+          <th>10:50-11:40</th>
+          <th>11:40-12:30</th>
+          <th>12:30-01:20</th>
+          <th>01:40-02:30</th>
+          <th>02:30-03:20</th>
+        </tr>
 
-      <tr>
-        <td>Tuesday</td>
-        <td>DM - 508</td>
-        <td>ENG GL-1</td>
-        <td>----</td>
-        <td>----</td>
-        <td>----</td>
-        <td>----</td>
-      </tr>
+        <tr data-day="Sunday">
+          <td>Sunday</td>
+          <td data-time="10:00-10:50"></td>
+          <td data-time="10:50-11:40"></td>
+          <td data-time="11:40-12:30"></td>
+          <td data-time="12:30-01:20">DM - 404</td>
+          <td data-time="01:40-02:30"></td>
+          <td data-time="02:30-03:20"></td>
+        </tr>
 
-      <tr class="offday">
-        <td>Wednesday</td>
-        <td colspan="6">OFF-DAY</td>
-      </tr>
+        <tr data-day="Monday">
+          <td>Monday</td>
+          <td data-time="10:00-10:50">ENG GL-1</td>
+          <td data-time="10:50-11:40">D&IC - 408</td>
+          <td data-time="11:40-12:30"></td>
+          <td data-time="12:30-01:20">Physics GL-1</td>
+          <td data-time="01:40-02:30"></td>
+          <td data-time="02:30-03:20"></td>
+        </tr>
 
-      <tr>
-        <td>Thursday</td>
-        <td>----</td>
-        <td>----</td>
-        <td>----</td>
-        <td>D&IC - 409</td>
-        <td>----</td>
-        <td>PHY GL-2</td>
-      </tr>
-    </table>
+        <tr data-day="Tuesday">
+          <td>Tuesday</td>
+          <td data-time="10:00-10:50">DM - 508</td>
+          <td data-time="10:50-11:40">ENG GL-1</td>
+          <td data-time="11:40-12:30"></td>
+          <td data-time="12:30-01:20"></td>
+          <td data-time="01:40-02:30"></td>
+          <td data-time="02:30-03:20"></td>
+        </tr>
 
-    <!--  contact Button -->
+        <tr data-day="Wednesday" class="offday">
+          <td>Wednesday</td>
+          <td colspan="6">OFF DAY</td>
+        </tr>
+
+        <tr data-day="Thursday">
+          <td>Thursday</td>
+          <td data-time="10:00-10:50"></td>
+          <td data-time="10:50-11:40"></td>
+          <td data-time="11:40-12:30"></td>
+          <td data-time="12:30-01:20">D&IC - 409</td>
+          <td data-time="01:40-02:30"></td>
+          <td data-time="02:30-03:20">PHY GL-2</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="contact">
+      <a href="https://www.facebook.com/jannatull.nayeem.nur/" target="_blank">
+        <button class="glow">Contact Me</button>
+      </a>
+    </div>
+
     <footer>
-      <style>
-        .body {
-          margin: 0;
-          padding: 0;
-          width: 100%;
-          height: 100vh;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          background: #000;
-          font-family: "Montserrat", sans-serif;
-        }
+      <div class="creator">Creator - Jannatull Nayeem Nur</div>
 
-        .glow-on-hover {
-          width: 220px;
-          height: 50px;
-          border: none;
-          outline: none;
-          color: #fff;
-          background: #111;
-          cursor: pointer;
-          position: relative;
-          z-index: 0;
-          border-radius: 10px;
-          font-family: "Montserrat", sans-serif;
-          font-weight: 600;
-          color: rgba(255, 255, 255, 0.979);
-        }
-
-        .glow-on-hover:before {
-          content: "";
-          background: linear-gradient(
-            45deg,
-            #ff0000,
-            #ff7300,
-            #fffb00,
-            #48ff00,
-            #00ffd5,
-            #002bff,
-            #7a00ff,
-            #ff00c8,
-            #ff0000
-          );
-          position: absolute;
-          top: -2px;
-          left: -2px;
-          background-size: 400%;
-          z-index: -1;
-          filter: blur(5px);
-          width: calc(100% + 4px);
-          height: calc(100% + 4px);
-          animation: glowing 20s linear infinite;
-          opacity: 0;
-          transition: opacity 0.3s ease-in-out;
-          border-radius: 10px;
-        }
-
-        .glow-on-hover:active {
-          color: #000;
-        }
-
-        .glow-on-hover:active:after {
-          background: green;
-        }
-
-        .glow-on-hover:hover:before {
-          opacity: 1;
-        }
-
-        .glow-on-hover:after {
-          z-index: -1;
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: #025fac;
-          left: 0;
-          top: 0;
-          border-radius: 10px;
-        }
-
-        @keyframes glowing {
-          0% {
-            background-position: 0 0;
-          }
-          50% {
-            background-position: 400% 0;
-          }
-          100% {
-            background-position: 0 0;
-          }
-        }
-        .arafat {
-          font-family: "Montserrat", sans-serif;
-          color: rgb(0, 0, 0);
-          font-size: 15px;
-          font-weight: bold;
-        }
-        .nayeem {
-          font-family: "Montserrat", sans-serif;
-          font-size: 25px;
-          font-weight: bold;
-          color: rgb(0, 0, 0);
-        }
-      </style>
-
-      <button
-        class="glow-on-hover"
-        type="button"
-        onclick="
-          window.location.href =
-            'https://www.facebook.com/jannatull.nayeem.nur/';
-          target = '_blank';
-        "
-        target="_blank"
-      >
-        Contact me
-      </button>
-      <h4 class="nayeem">Creator - Jannatull Nayeem Nur</h4>
-      <h5 class="arafat">[ Inspired by Arafat Ahmed Sec B-(CR) ]</h5>
+      <div class="credit">Inspired by Arafat Ahmed (Sec B - CR)</div>
     </footer>
+
+    <script>
+      /* clock */
+
+      function updateClock() {
+        let now = new Date();
+
+        document.getElementById("clock").innerHTML =
+          "Time : " + now.toLocaleTimeString();
+      }
+
+      setInterval(updateClock, 1000);
+
+      /* dark mode */
+
+      function toggleMode() {
+        document.body.classList.toggle("dark");
+      }
+
+      /* today's highlight */
+
+      let today = new Date().toLocaleDateString("en-US", { weekday: "long" });
+
+      let rows = document.querySelectorAll("#routine tr");
+
+      rows.forEach((row) => {
+        if (row.dataset.day === today) {
+          row.classList.add("today");
+        }
+      });
+
+      /* current class highlight */
+
+      function highlightClass() {
+        let now = new Date();
+
+        let currentTime = now.getHours() * 60 + now.getMinutes();
+
+        document.querySelectorAll("[data-time]").forEach((cell) => {
+          let range = cell.dataset.time.split("-");
+
+          let start = range[0].split(":");
+          let end = range[1].split(":");
+
+          let startMin = start[0] * 60 + parseInt(start[1]);
+          let endMin = end[0] * 60 + parseInt(end[1]);
+
+          if (currentTime >= startMin && currentTime <= endMin) {
+            cell.classList.add("current");
+          }
+        });
+      }
+
+      setInterval(highlightClass, 60000); 
+
+     
+      
+    </script>
   </body>
 </html>
+
